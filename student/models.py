@@ -1,10 +1,11 @@
 from django.db import models
 from staff.models import Staffs
 
+
 # Create your models here.
 
 
-class Courses(models.Model):
+class Course(models.Model):
     id = models.BigAutoField(primary_key=True)
     course_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -12,10 +13,10 @@ class Courses(models.Model):
     objects = models.Manager()
 
 
-class Subjects(models.Model):
+class Subject(models.Model):
     id = models.BigAutoField(primary_key=True)
     subject_name = models.CharField(max_length=255)
-    course_id = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
     staff_id = models.ForeignKey(Staffs, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
@@ -33,6 +34,12 @@ class Student(models.Model):
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default='male')
     profile_pic = models.ImageField()
     address = models.TextField()
-    course_id = models.ForeignKey(Courses, on_delete=models.DO_NOTHING)
+    course_id = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
