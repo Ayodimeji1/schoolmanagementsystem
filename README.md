@@ -1,9 +1,9 @@
 
 # School Management System
 
-## Introduction
+## Overview
 
-The School Management System is a comprehensive web-based platform designed to manage school operations, including user management, class scheduling, and data handling. This project leverages Django for the backend and includes extensive static assets and configurations for frontend support.
+The School Management System project is a comprehensive web-based platform designed to manage school operations, including user management, class scheduling, and data handling. This project use Django for the backend and includes extensive static assets and configurations for frontend support.
 
 ## Table of Contents
 
